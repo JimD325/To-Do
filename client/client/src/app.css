@@ -1,0 +1,14 @@
+/* * {
+
+} */
+#body {
+  border: 10px black;
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  background-color: aqua;
+  color:brown;
+}
