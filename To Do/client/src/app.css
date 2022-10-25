@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+#body {
+  border: 10px black;
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+h1 {
+  background-color: aqua;
+  color:brown;
+}
