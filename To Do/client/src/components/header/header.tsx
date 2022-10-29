@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Toggle } from "@cloudscape-design/components";
 import { TypeOfThemeContext, LightDarkContext } from '../../context/settings/context'
 
@@ -20,7 +20,6 @@ export const Header = ({ setTheme }: HeaderProps) => {
     localStorage.setItem("colorTheme", theme.theme);
   })
 
-  // light toggle goes on left side 
   // auth0 goes in header aligned to right side
   return (
     <div className = {theme.theme ===  "awsui-dark-mode" ? "awsui-dark-mode" : "awsui-light-mode"}>
