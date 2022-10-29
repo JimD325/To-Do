@@ -1,6 +1,8 @@
 * {
   box-sizing: border-box;
 }
+
+
 #body {
   border: 10px black;
   background-color: aqua;
