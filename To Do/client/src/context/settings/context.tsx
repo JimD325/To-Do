@@ -1,5 +1,5 @@
 import {createContext} from "react";
-
+import axios from "axios";
 export type TypeOfThemeContext = {
   theme: string | null | undefined
 }
@@ -17,3 +17,5 @@ export const LightDarkContext = createContext<TypeOfThemeContext>({
   theme: startingTheme()
   
 })
+
+

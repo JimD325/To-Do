@@ -19,6 +19,8 @@ export const AddForm = (props: any) => {
   const [description, setDescription] = React.useState("");
   const [date, setDate] = React.useState("");
   const theme = useContext(LightDarkContext);
+
+
   const handleSubmit = (e: any, callback: Function) => {
     e.preventDefault();
     let assignedOn = date.toLocaleString();
@@ -29,8 +31,9 @@ export const AddForm = (props: any) => {
       completeBy: date,
       completed: false,
     }
-    callback(formData)
-    console.log("form data on addForm", formData);
+    callback(...[formData])
+    console.log("form data on addForm", ...[formData]);
+
   }
 
 
@@ -46,14 +49,6 @@ export const AddForm = (props: any) => {
               <Button variant="primary">Submit</Button>
             </SpaceBetween>
           }
-          header={
-            <Header
-              variant="h1"
-              description="You can find more examples in FormField documentation page"
-            >
-              Form header
-            </Header>
-          }
         >
           <Container
             header={
@@ -68,6 +63,7 @@ export const AddForm = (props: any) => {
                   onChange={({ detail }) => setTitle(detail.value)}
                   value={title}
                   placeholder="Name of item"
+                 
                 />
               </FormField>
               <FormField label="To-Do Description">
