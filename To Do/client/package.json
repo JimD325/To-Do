@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^1.12.0",
     "@cloudscape-design/collection-hooks": "^1.0.10",
     "@cloudscape-design/components": "^3.0.82",
     "@cloudscape-design/global-styles": "^1.0.1",

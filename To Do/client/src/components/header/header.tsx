@@ -1,18 +1,23 @@
 import React, { useContext, useEffect } from "react";
 import { Toggle } from "@cloudscape-design/components";
-import { TypeOfThemeContext, LightDarkContext } from '../../context/settings/context'
-
+import { SettingsContext } from '../../context/settings/context'
+import LoginButton from '../../context/auth/login'
+import LogoutButton from '../../context/auth/logout'
+import { useAuth0 } from "@auth0/auth0-react";
+import './header.css';
 export type HeaderProps = {
-  setTheme: (newTheme: TypeOfThemeContext) => void
+  setTheme: (newTheme: any) => void
 }
 
 export const Header = ({ setTheme }: HeaderProps) => {
   const [checked, setChecked] = React.useState(false);
-  const theme = useContext(LightDarkContext);
+  const theme = useContext(SettingsContext);
+  const {isAuthenticated, user} = useAuth0(); 
 
   const toggleHandler = (detail: any) => {
     setChecked(detail.checked);
     setTheme({ theme: theme.theme === 'awsui-dark-mode' ? 'awsui-light-mode' : 'awsui-dark-mode' });
+    console.log("header theme", theme.theme);
   }
 
   useEffect(() => {
@@ -22,19 +27,26 @@ export const Header = ({ setTheme }: HeaderProps) => {
 
   // auth0 goes in header aligned to right side
   return (
-    <div className = {theme.theme ===  "awsui-dark-mode" ? "awsui-dark-mode" : "awsui-light-mode"}>
-      <Toggle
+    <div id = "headerContainer">
+      <div className = {theme.theme ===  "awsui-dark-mode" ? "awsui-dark-mode" : "awsui-light-mode"}>
+      <Toggle id = "headerFeatures"
       onChange={({ detail }) =>
         toggleHandler(detail)
       }
       checked={checked}
-      description={
-        <React.Fragment>Color Theme</React.Fragment>
-      }
+      
     >
       {theme.theme === 'awsui-dark-mode' ? "🌙" : "☀️"}
+      {isAuthenticated? <LogoutButton/> : <LoginButton/>}
     </Toggle>
+    <span className = "logButtons">
+      
+      
+      
+    </span>
     </div>
+    </div>
+    
     
   );
 }

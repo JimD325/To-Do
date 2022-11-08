@@ -8,8 +8,8 @@ import Container from "@cloudscape-design/components/container";
 import FormField from "@cloudscape-design/components/form-field";
 import Input from "@cloudscape-design/components/input";
 import DatePicker from "@cloudscape-design/components/date-picker";
-import { LightDarkContext } from "../../context/settings/context"
-
+import { SettingsContext } from "../../context/settings/context"
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
@@ -18,27 +18,35 @@ export const AddForm = (props: any) => {
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [date, setDate] = React.useState("");
-  const theme = useContext(LightDarkContext);
-
+  const theme = useContext(SettingsContext);
+  const {isAuthenticated, user} = useAuth0();
 
   const handleSubmit = (e: any, callback: Function) => {
     e.preventDefault();
     let assignedOn = date.toLocaleString();
-    let formData = {
+    if(user){
+      let formData = {
       name: title,
       description: description,
       assignedOn: assignedOn,
       completeBy: date,
       completed: false,
+      email: user.email
     }
     callback(...[formData])
-    console.log("form data on addForm", ...[formData]);
+    console.log("form data on addForm", formData);
+    } else {
+      return;
+    }
+    
 
   }
 
 
   return (
-    <Container id="ListContainer">
+    <Container id="ListContainer"
+    
+    >
       <form className={theme.theme === "awsui-dark-mode" ? "awsui-dark-mode" : "awsui-light-mode"} onSubmit={e => handleSubmit(e, props.addItem)}>
         <Form
           actions={

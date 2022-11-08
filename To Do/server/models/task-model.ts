@@ -6,6 +6,7 @@ const taskSchema = new Schema({
   description: String,
   completeBy: String,
   completed: Boolean,
+  email: String
 });
 
 module.exports = taskDB.model('Task', taskSchema);
