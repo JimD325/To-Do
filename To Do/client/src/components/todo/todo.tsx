@@ -1,15 +1,17 @@
+import userEvent from '@testing-library/user-event';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { AddForm } from './addForm';
 import { List } from './List';
-// import {ThemeContext} from "../../app"
+import { useAuth0 } from "@auth0/auth0-react";
 
 export interface ToDoCard {
   name: string,
   description: string,
   completeBy: string,
   completed: boolean,
-  assignedOn: string
+  assignedOn: string,
+  email: string
 }
 
 const initialState: ToDoCard[] = []
@@ -17,7 +19,7 @@ const initialState: ToDoCard[] = []
   
 export const ToDo: React.FC = () => {
   const [tasks, setTasks] = useState(initialState);
-  // const darkMode = useContext(ThemeContext);
+    const {isAuthenticated, user} = useAuth0();
 
   function addItemToDB(card:ToDoCard) {
     axios({
@@ -32,13 +34,19 @@ export const ToDo: React.FC = () => {
   }
 
   const getTasks = () => {
-    axios({
+    if(user){
+      axios({
       method: "GET",
       url: "http://localhost:3001/task"
     }).then((res) => {
+      console.log(res.data);
+      console.log(user.email)
+      res.data = res.data.filter((obj:any) => obj.email === user?.email)
       setTasks(res.data);
       console.log("tasks on get Tasks", tasks)
     }).catch((err) => console.log(err))
+    }
+    
   }
 
   const deleteFromDB = (props: any) => {

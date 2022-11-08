@@ -8,20 +8,11 @@ import "./todo.css"
 
 import {SelectedModal} from "./modal";
 
-import { LightDarkContext } from "../../context/settings/context";
+import { SettingsContext } from "../../context/settings/context";
 import Container from "@cloudscape-design/components/container";
 
-import Form from "@cloudscape-design/components/form";
-import axios from "axios";
 
-// export type taskMongoType = {
-//   id: string,
-//   name: string,
-//   description: string,
-//   completeBy: string,
-//   completed: boolean,
-//   __v: number
-// }
+
 
 
 
@@ -49,7 +40,7 @@ export const List = (props: any) => {
 
 
 
-  const theme = useContext(LightDarkContext);
+  const theme = useContext(SettingsContext);
 
   return (
     
@@ -59,7 +50,7 @@ export const List = (props: any) => {
       deleteFromDB = {props.deleteFromDB} 
       editInDB = {props.editInDB}
       // getTasksOnLoad = {getTasksOnLoad} 
-      className = "modal"/> : <p>testing testing 123</p>}
+      className = "modal"/> : <></>}
       
       <Cards className={theme.theme === "awsui-dark-mode" ? "awsui-dark-mode" : "awsui-light-mode"}
       
@@ -105,7 +96,6 @@ export const List = (props: any) => {
         }
         
       />
-      <Button formAction="submit" >Add to your list</Button>
     </Container>
 
   );

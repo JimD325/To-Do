@@ -9,6 +9,7 @@ const create = async (req, res, next) => {
     const task = await TaskModel.create( data);
     await task.save();
     res.status(200).json(task);
+    console.log("server side res.body on create", ...res.headers)
   } catch (err) {
     console.log("err on creating a new task", err)
   }

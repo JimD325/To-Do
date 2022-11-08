@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+#headerContainer {
+  background-color: brown !important;
+  display:contents;
+  margin: 10px !important;
+}
+
+#headerFeatures {
+  display:inline;
+}
+
+.logButtons {
+  padding: 10px;
+}
