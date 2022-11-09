@@ -4,7 +4,7 @@ import ContentLayout from "@cloudscape-design/components/content-layout"
 
 
 
-export const AboutUs = () => {
+export const GettingItDone = () => {
 
 
 
@@ -16,7 +16,7 @@ export const AboutUs = () => {
     disableOverlap
       
     >
-      <Box variant="h2">About Us</Box>
+      <Box variant="h2">Why Another TODO</Box>
 
       <Box variant="p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque velit quaerat et veniam numquam omnis distinctio soluta cumque nam, natus accusamus ad quis. Animi rerum perspiciatis provident itaque nulla excepturi.</Box>
     </ContentLayout>

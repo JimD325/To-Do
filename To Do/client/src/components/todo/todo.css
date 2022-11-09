@@ -1,9 +1,9 @@
 #ListContainer{
   margin: 10px;
-  background-color: aqua;
+  /* background-color: aqua; */
   display: flex;
   justify-content: space-between;
   padding: 10px;
   width:50%;
-  background-color: rgba(0, 255, 255, 0.7) !important;
+  background-color: rgba(0, 255, 255) !important;
 }

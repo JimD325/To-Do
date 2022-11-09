@@ -4,14 +4,14 @@
 
 
 #body {
-  border: 10px black;
-  background-color: aqua;
+  /* border: 100px black; */
+  background-color: rgb(121, 121, 121);
   display: flex;
   justify-content: space-between;
   padding: 10px;
 }
 
-h1 {
+/* h1 {
   background-color: aqua;
   color:brown;
-}
+} */
