@@ -2,8 +2,8 @@
   box-sizing: border-box;
 }
 #headerContainer {
-  background-color: brown !important;
-  display:contents;
+  /* background-color: brown !important; */
+  /* display:contents; */
   margin: 10px !important;
 }
 

@@ -7,7 +7,7 @@ import { SettingsContext } from './context/settings/context'
 import { ToDo } from './components/todo/todo';
 import ContentLayout from "@cloudscape-design/components/content-layout"
 import { useAuth0 } from "@auth0/auth0-react";
-import { AboutUs } from './components/AboutUs/AboutUs'
+import { Welcome } from './components/AboutUs/Welcome'
 
 // form data comes from add form, app then passes 
 export const App: React.FC = () => {
@@ -24,12 +24,9 @@ export const App: React.FC = () => {
     <>
       <SettingsContext.Provider value={theme}>
         <ContentLayout header= {<Header setTheme = {setTheme}/>} className = {theme.theme ===  "awsui-dark-mode" ? "awsui-dark-mode" : "awsui-light-mode"}>
-          
-          { isAuthenticated ? <ToDo /> : <AboutUs/>}
-        
+          { isAuthenticated ? <ToDo /> : <Welcome/>}
         <Footer />
         </ContentLayout>
-        
       </SettingsContext.Provider>
     </>
   )
